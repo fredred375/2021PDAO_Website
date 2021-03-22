@@ -5,15 +5,35 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face
+{
+
+	font-family: testdata;
+	src: url(../fonts/Inconsolata.ttf);
+}
+@font-face
+{
+
+	font-family: AAfont;
+	src: url(../fonts/mona.ttf);
+}
+@font-face
+{
+	font-family: 'Klavika Bold';
+	src: url(../fonts/Klavika.ttf);
+}
 /* =======================================================
 *
 * 	Template Style 
 *
 * ======================================================= */
 body {
-  font-family: "Raleway", Arial, sans-serif;
+  
+  font-family: "メイリオ", "Droid Sans Fallback", "Microsoft JhengHei", "Bitstream Vera Sans", "DejaVu Sans", "Tahoma", "LiHei Pro", "文泉驛微米黑", "AR PL UMing TW", "新細明體", "sans-serif";
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.7;
   color: #777;
   background: #fff;
@@ -27,6 +47,8 @@ body {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  background-image: url(../images/about_back.png);
+  background-size: cover;
 }
 .offcanvas #page {
   overflow: hidden;
@@ -82,6 +104,10 @@ h1, h2, h3, h4, h5, h6, figure {
 ::selection {
   color: #fff;
   background: #17B794;
+}
+
+#plogo {
+  opacity: 0.8 !important;
 }
 
 /* HEAD */
@@ -992,13 +1018,14 @@ form label {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3dcdbc', endColorstr='#33a1bd', GradientType=1 );
 }
 #gtco-header p {
-  color: #d3f1ed;
+  color: #333;
   font-size: 20px;
   margin-bottom: 40px !important;
 }
 #gtco-header h1 {
   font-size: 50px;
   line-height: 1.2 !important;
+  margin-top: 30px !important;
   margin-bottom: 30px !important;
   color: #d3f1ed;
   font-weight: 100;
@@ -1033,9 +1060,10 @@ form label {
 #gtco-counter .display-tc h2,
 .gtco-cover .display-tc h1,
 .gtco-cover .display-tc h2 {
-  margin: 0;
+  /* margin: 40px; */
+  font-weight: 300;
   padding: 0;
-  color: white;
+  color:#333;
 }
 #gtco-header .display-tc h1,
 #gtco-counter .display-tc h1,
@@ -1601,6 +1629,17 @@ form label {
 
 .js .animate-box {
   opacity: 0;
+}
+
+.wood {
+  margin: auto;
+  background-image: url(../images/login_image.png);
+  background-size: cover;
+  opacity: 0.8 !important;
+  box-shadow: 3px 7px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  width: 480px;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
