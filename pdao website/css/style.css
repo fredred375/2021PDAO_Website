@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 55px;
   padding-top: 0px;
   margin-left: 5px;
-  margin-right: 15px;
+  margin-right: 5px;
   opacity: 0.85;
 }
 .Nav
@@ -261,6 +261,31 @@ h1, h2, h3, h4, h5, h6, figure {
     border-radius: 6px 0 6px 6px;
 }
 /* end nested dropdown */
+
+@media screen and (max-width: 410px)
+{
+  .nav-logo {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 370px)
+{
+  #logo {
+    width: 40px;
+    padding-top: 5px;
+  }
+
+  .navbar {
+    padding-bottom: 40px;
+  }
+
+  .Nav li a {
+    font-size: 10px;
+    padding: 10px;
+    padding-top: 15px;
+  }
+}
 
 .gtco-container {
   max-width: 1140px;
@@ -2090,3 +2115,24 @@ form label {
 }
 
 /*# sourceMappingURL=style.css.map */
+#footdiv
+{
+	margin: 70px 0px;
+	height:100px;
+	word-wrap: break-word;
+	/*background:url(/judge/img/foot2.jpg) repeat-x;*/
+
+	-moz-border-radius: 8px 8px 8px 8px;
+	border-radius:  8px 8px 8px 8px;
+}
+.copyright
+{
+	text-align:center;
+	letter-spacing:2px;
+	font-weight: bold;
+	font-size:12px;
+	padding-top:10px;
+	line-height:15px;
+	color: 	grey;
+	font-family: "メイリオ", "Droid Sans Fallback", "Microsoft JhengHei", "Bitstream Vera Sans", "DejaVu Sans", "Tahoma", "LiHei Pro", "文泉驛微米黑", "AR PL UMing TW", "新細明體", "sans-serif";
+}

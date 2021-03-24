@@ -1,70 +1,95 @@
-;(function () {
+//calculate the time before calling the function in window.onload
+var beforeload = (new Date()).getTime();
+
+function getPageLoadTime() {
+  //calculate the current time in afterload
+  var afterload = (new Date()).getTime();
+  // now use the beforeload and afterload to calculate the seconds
+  seconds = (afterload - beforeload) / 1000;
+  var string = 'Programming Design Online Grading System 4S\n Information Management,National Taiwan UniversityPage\n Loading Time: ' + seconds + ' sec\n Memory Used: 0.72MB'
+  // Place the seconds in the innerHTML to show the results
+  $("#load_time").text(string);
+}
+
+window.onload = getPageLoadTime;
+
+var $root = $('html, body');
+
+$('a[href^="#"]').click(function () {
+    $root.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+
+    return false;
+});
+
+(function () {
 	
 	'use strict';
 
-	var mobileMenuOutsideClick = function() {
+	// var mobileMenuOutsideClick = function() {
 
-		$(document).click(function (e) {
-	    var container = $("#gtco-offcanvas, .js-gtco-nav-toggle");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	    	$('.js-gtco-nav-toggle').addClass('');
+	// 	$(document).click(function (e) {
+	//     var container = $("#gtco-offcanvas, .js-gtco-nav-toggle");
+	//     if (!container.is(e.target) && container.has(e.target).length === 0) {
+	//     	$('.js-gtco-nav-toggle').addClass('');
 
-	    	if ( $('body').hasClass('offcanvas') ) {
+	//     	if ( $('body').hasClass('offcanvas') ) {
 
-    			$('body').removeClass('offcanvas');
-    			$('.js-gtco-nav-toggle').removeClass('active');
+    // 			$('body').removeClass('offcanvas');
+    // 			$('.js-gtco-nav-toggle').removeClass('active');
 				
-	    	}
+	//     	}
 	    
 	    	
-	    }
-		});
+	//     }
+	// 	});
 
-	};
+	// };
+
+	
+	// var offcanvasMenu = function() {
+
+	// 	$('#page').prepend('<div id="gtco-offcanvas" />');
+	// 	$('#page').prepend('<a href="#" class="js-gtco-nav-toggle gtco-nav-toggle "><i></i></a>');
+	// 	var clone1 = $('.menu-1 > ul').clone();
+	// 	$('#gtco-offcanvas').append(clone1);
+	// 	var clone2 = $('.menu-2 > ul').clone();
+	// 	$('#gtco-offcanvas').append(clone2);
+
+	// 	$('#gtco-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
+	// 	$('#gtco-offcanvas')
+	// 		.find('li')
+	// 		.removeClass('has-dropdown');
+
+	// 	// Hover dropdown menu on mobile
+	// 	$('.offcanvas-has-dropdown').mouseenter(function(){
+	// 		var $this = $(this);
+
+	// 		$this
+	// 			.addClass('active')
+	// 			.find('ul')
+	// 			.slideDown(500, 'easeOutExpo');				
+	// 	}).mouseleave(function(){
+
+	// 		var $this = $(this);
+	// 		$this
+	// 			.removeClass('active')
+	// 			.find('ul')
+	// 			.slideUp(500, 'easeOutExpo');				
+	// 	});
 
 
-	var offcanvasMenu = function() {
+	// 	$(window).resize(function(){
 
-		$('#page').prepend('<div id="gtco-offcanvas" />');
-		$('#page').prepend('<a href="#" class="js-gtco-nav-toggle gtco-nav-toggle "><i></i></a>');
-		var clone1 = $('.menu-1 > ul').clone();
-		$('#gtco-offcanvas').append(clone1);
-		var clone2 = $('.menu-2 > ul').clone();
-		$('#gtco-offcanvas').append(clone2);
+	// 		if ( $('body').hasClass('offcanvas') ) {
 
-		$('#gtco-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
-		$('#gtco-offcanvas')
-			.find('li')
-			.removeClass('has-dropdown');
-
-		// Hover dropdown menu on mobile
-		$('.offcanvas-has-dropdown').mouseenter(function(){
-			var $this = $(this);
-
-			$this
-				.addClass('active')
-				.find('ul')
-				.slideDown(500, 'easeOutExpo');				
-		}).mouseleave(function(){
-
-			var $this = $(this);
-			$this
-				.removeClass('active')
-				.find('ul')
-				.slideUp(500, 'easeOutExpo');				
-		});
-
-
-		$(window).resize(function(){
-
-			if ( $('body').hasClass('offcanvas') ) {
-
-    			$('body').removeClass('offcanvas');
-    			$('.js-gtco-nav-toggle').removeClass('active');
+    // 			$('body').removeClass('offcanvas');
+    // 			$('.js-gtco-nav-toggle').removeClass('active');
 				
-	    	}
-		});
-	};
+	//     	}
+	// 	});
+	// };
 
 
 	var burgerMenu = function() {
@@ -347,8 +372,8 @@
 
 	
 	$(function(){
-		mobileMenuOutsideClick();
-		offcanvasMenu();
+		// mobileMenuOutsideClick();
+		// offcanvasMenu();
 		burgerMenu();
 		contentWayPoint();
 		dropdown();
