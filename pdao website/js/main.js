@@ -318,31 +318,31 @@ $('a[href^="#"]').click(function () {
 	};
 
 
-	var goToTop = function() {
+	// var goToTop = function() {
 
-		$('.js-gotop').on('click', function(event){
+	// 	$('.js-gotop').on('click', function(event){
 			
-			event.preventDefault();
+	// 		event.preventDefault();
 
-			$('html, body').animate({
-				scrollTop: $('html').offset().top
-			}, 500, 'easeInOutExpo');
+	// 		$('html, body').animate({
+	// 			scrollTop: $('html').offset().top
+	// 		}, 500, 'easeInOutExpo');
 			
-			return false;
-		});
+	// 		return false;
+	// 	});
 
-		$(window).scroll(function(){
+	// 	$(window).scroll(function(){
 
-			var $win = $(window);
-			if ($win.scrollTop() > 200) {
-				$('.js-top').addClass('active');
-			} else {
-				$('.js-top').removeClass('active');
-			}
+	// 		var $win = $(window);
+	// 		if ($win.scrollTop() > 200) {
+	// 			$('.js-top').addClass('active');
+	// 		} else {
+	// 			$('.js-top').removeClass('active');
+	// 		}
 
-		});
+	// 	});
 	
-	};
+	// };
 
 
 	// Loading page
@@ -370,7 +370,6 @@ $('a[href^="#"]').click(function () {
 		}
 	};
 
-	
 	$(function(){
 		// mobileMenuOutsideClick();
 		// offcanvasMenu();
@@ -379,7 +378,7 @@ $('a[href^="#"]').click(function () {
 		dropdown();
 		owlCarousel();
 		tabs();
-		goToTop();
+		// goToTop();
 		loaderPage();
 		counterWayPoint();
 		changeWayPoint();
@@ -387,3 +386,34 @@ $('a[href^="#"]').click(function () {
 
 
 }());
+
+const form = document.getElementById('form');
+form.addEventListener('submit', e => {
+	e.preventDefault();
+	const file = form.file.files[0];
+	const fr = new FileReader();
+	fr.readAsArrayBuffer(file);
+	fr.onload = f => {
+		
+		const url = "https://script.google.com/macros/s/AKfycbx9ZFeyXjiFVFCb8GztyqynKNoCQUy8YarfU7rpNi4rcStmzBo/exec";  // <--- Please set the URL of Web Apps.
+		
+		const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
+		fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
+		.then(res => {
+			res.json();
+			// window.location.href = 'registersuccess.html';})
+			var registerPage = document.getElementById('register-success');
+			registerPage.innerHTML = '';
+			var h2 = document.createElement('h2');
+			h2.textContent = '報名成功';
+			registerPage.appendChild(h2);
+			var p = document.createElement('p');
+			p.innerText = "我們已收到您的報名資料，\n在報名截止並篩選過後將會寄信到隊長信箱。\n請靜候我們的消息。";
+			registerPage.appendChild(p);
+			var clearPage = document.getElementById('clear-this');
+			clearPage.style.display = 'none';
+		})
+		.then(e => console.log(e))  // <--- You can retrieve the returned value here.
+		.catch(err => console.log(err));
+	}
+});
