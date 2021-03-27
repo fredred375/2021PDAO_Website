@@ -6,7 +6,7 @@ function getPageLoadTime() {
   var afterload = (new Date()).getTime();
   // now use the beforeload and afterload to calculate the seconds
   seconds = (afterload - beforeload) / 1000;
-  var string = 'Programming Design Online Grading System 4S\n Information Management,National Taiwan UniversityPage\n Loading Time: ' + seconds + ' sec\n Memory Used: 0.72MB'
+  var string = 'Programming Design And Optimization\n Information Management,National Taiwan University\n Page Loading Time: ' + seconds + ' sec\n Memory Used: 0.72MB'
   // Place the seconds in the innerHTML to show the results
   $("#load_time").text(string);
 }
@@ -388,32 +388,35 @@ $('a[href^="#"]').click(function () {
 }());
 
 const form = document.getElementById('form');
-form.addEventListener('submit', e => {
-	e.preventDefault();
-	const file = form.file.files[0];
-	const fr = new FileReader();
-	fr.readAsArrayBuffer(file);
-	fr.onload = f => {
-		
-		const url = "https://script.google.com/macros/s/AKfycbx9ZFeyXjiFVFCb8GztyqynKNoCQUy8YarfU7rpNi4rcStmzBo/exec";  // <--- Please set the URL of Web Apps.
-		
-		const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
-		fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
-		.then(res => {
-			res.json();
-			// window.location.href = 'registersuccess.html';})
-			var registerPage = document.getElementById('register-success');
-			registerPage.innerHTML = '';
-			var h2 = document.createElement('h2');
-			h2.textContent = '報名成功';
-			registerPage.appendChild(h2);
-			var p = document.createElement('p');
-			p.innerText = "我們已收到您的報名資料，\n在報名截止並篩選過後將會寄信到隊長信箱。\n請靜候我們的消息。";
-			registerPage.appendChild(p);
-			var clearPage = document.getElementById('clear-this');
-			clearPage.style.display = 'none';
-		})
-		.then(e => console.log(e))  // <--- You can retrieve the returned value here.
-		.catch(err => console.log(err));
-	}
-});
+if(form)
+{
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+		const file = form.file.files[0];
+		const fr = new FileReader();
+		fr.readAsArrayBuffer(file);
+		fr.onload = f => {
+			
+			const url = "https://script.google.com/macros/s/AKfycbx9ZFeyXjiFVFCb8GztyqynKNoCQUy8YarfU7rpNi4rcStmzBo/exec";  // <--- Please set the URL of Web Apps.
+			
+			const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
+			fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
+			.then(res => {
+				res.json();
+				// window.location.href = 'registersuccess.html';})
+				var registerPage = document.getElementById('register-success');
+				registerPage.innerHTML = '';
+				var h2 = document.createElement('h2');
+				h2.textContent = '報名成功';
+				registerPage.appendChild(h2);
+				var p = document.createElement('p');
+				p.innerText = "我們已收到您的報名資料，\n在報名截止並篩選過後將會寄信到隊長信箱。\n請靜候我們的消息。";
+				registerPage.appendChild(p);
+				var clearPage = document.getElementById('clear-this');
+				clearPage.style.display = 'none';
+			})
+			.then(e => console.log(e))  // <--- You can retrieve the returned value here.
+			.catch(err => console.log(err));
+		}
+	});
+}
