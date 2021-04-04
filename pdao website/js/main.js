@@ -6,7 +6,7 @@ function getPageLoadTime() {
   var afterload = (new Date()).getTime();
   // now use the beforeload and afterload to calculate the seconds
   seconds = (afterload - beforeload) / 1000;
-  var string = 'Programming Design And Optimization\n Information Management,National Taiwan University\n Page Loading Time: ' + seconds + ' sec\n Memory Used: 0.72MB'
+  var string = 'Programming Design And Optimization Website\n Information Management,National Taiwan University\n Page Loading Time: ' + seconds + ' sec\n Memory Used: 0.72MB'
   // Place the seconds in the innerHTML to show the results
   $("#load_time").text(string);
 }
