@@ -1662,8 +1662,9 @@ form label {
   background-size: cover;
   opacity: 0.8 !important;
   box-shadow: 3px 7px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 40px;
-  width: 480px;
+  border-radius: 3vw;
+  width: 50%;
+  height: 50%;
   text-align: center;
 }
 
@@ -2135,4 +2136,10 @@ form label {
 	line-height:15px;
 	color: 	grey;
 	font-family: "メイリオ", "Droid Sans Fallback", "Microsoft JhengHei", "Bitstream Vera Sans", "DejaVu Sans", "Tahoma", "LiHei Pro", "文泉驛微米黑", "AR PL UMing TW", "新細明體", "sans-serif";
+}
+
+#logoTitle {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
 }
