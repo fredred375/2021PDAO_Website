@@ -1042,6 +1042,26 @@ form label {
   background-image: url(../images/background.jpg);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3dcdbc', endColorstr='#33a1bd', GradientType=1 );
 }
+#gtco-header-opa::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../images/background.jpg); 
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity : 0.8;
+  z-index: 1;
+}
+
+#gtco-header-opa p {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 40px !important;
+}
+
 #gtco-header p {
   color: #333;
   font-size: 20px;
