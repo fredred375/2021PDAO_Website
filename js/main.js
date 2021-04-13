@@ -393,12 +393,12 @@ if(form)
 	form.addEventListener('submit', e => {
 		e.preventDefault();
 		var button = document.getElementById('submit');
-		if(!button.disable)
+		if(!button.disabled)
 		{
 			const file = form.file.files[0];
 			if(file)
 			{
-				button.disable = true;
+				button.disabled = true;
 				button.style.background = '#A9A9A9';
 				button.style.border = '#A9A9A9';
 				const fr = new FileReader();
@@ -421,13 +421,13 @@ if(form)
 						registerPage.appendChild(p);
 						var clearPage = document.getElementById('clear-this');
 						clearPage.style.display = 'none';
-						button.disable = false;
+						button.disabled = false;
 						button.style.background = '#00ffa3';
 						button.style.border = '#00ffa3';
 					})
 					.catch(err => {
 						console.log(err);
-						button.disable = false;
+						button.disabled = false;
 						button.style.background = '#00ffa3';
 						button.style.border = '#00ffa3';
 					});
