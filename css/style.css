@@ -1587,7 +1587,7 @@ form label {
   border: 2px solid #00ffa3;
 }
 .btn-special:hover, .btn-special:focus, .btn-special:active {
-  color: #239c71;
+  color: black;
   background: #00ffa3;
   border-color: #00ffa3;
 }
