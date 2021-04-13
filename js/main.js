@@ -405,8 +405,8 @@ if(form)
 				fr.readAsArrayBuffer(file);
 				fr.onload = f => {
 					
-					const url = "https://script.google.com/macros/s/AKfycbx9ZFeyXjiFVFCb8GztyqynKNoCQUy8YarfU7rpNi4rcStmzBo/exec";
-					
+					const url = "https://script.google.com/macros/s/AKfycbxRuNTASHFGJGTbW1Q-iM0BO6scxej2xS2DhMBU95EgHpCuaYytcJLRVDCQ-cr9KI09/exec";
+
 					const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
 					fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
 					.then(res => {
