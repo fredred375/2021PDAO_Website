@@ -387,62 +387,94 @@ $('a[href^="#"]').click(function () {
 
 }());
 
+var deadline = new Date('2021-4-21')
 const form = document.getElementById('form');
 if(form)
 {
-	form.addEventListener('submit', e => {
-		e.preventDefault();
+	if(deadline < Date.now())
+	{
 		var button = document.getElementById('submit');
-		if(!button.disabled)
-		{
-			const file = form.file.files[0];
-			if(file)
+		button.disabled = true;
+		button.style.background = '#A9A9A9';
+		button.style.border = '#A9A9A9';
+		button.style.color = 'black';
+		button.title = '報名已截止';
+	}
+	else
+	{
+		form.addEventListener('submit', e => {
+			e.preventDefault();
+			var button = document.getElementById('submit');
+			if(!button.disabled)
 			{
-				button.disabled = true;
-				button.style.background = '#A9A9A9';
-				button.style.border = '#A9A9A9';
-				const fr = new FileReader();
-				fr.readAsArrayBuffer(file);
-				fr.onload = f => {
-					
-					const url = "https://script.google.com/macros/s/AKfycbxRuNTASHFGJGTbW1Q-iM0BO6scxej2xS2DhMBU95EgHpCuaYytcJLRVDCQ-cr9KI09/exec";
-
-					const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
-					fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
-					.then(res => {
-						res.json();
-						var registerPage = document.getElementById('register-success');
-						registerPage.innerHTML = '';
-						var h2 = document.createElement('h2');
-						h2.textContent = '報名成功';
-						registerPage.appendChild(h2);
-						var p = document.createElement('p');
-						p.innerText = "我們已收到您的報名資料，\n4/23篩選過後會在網站上公布報名名單。\n請靜候我們的消息。";
-						registerPage.appendChild(p);
-						var clearPage = document.getElementById('clear-this');
-						clearPage.style.display = 'none';
-						button.disabled = false;
-						button.style.background = '#00ffa3';
-						button.style.border = '#00ffa3';
-					})
-					.catch(err => {
-						console.log(err);
-						button.disabled = false;
-						button.style.background = '#00ffa3';
-						button.style.border = '#00ffa3';
-					});
-				}		
+				const file = form.file.files[0];
+				if(file)
+				{
+					button.disabled = true;
+					button.style.background = '#A9A9A9';
+					button.style.border = '#A9A9A9';
+					const fr = new FileReader();
+					fr.readAsArrayBuffer(file);
+					fr.onload = f => {
+						
+						const url = "https://script.google.com/macros/s/AKfycbxRuNTASHFGJGTbW1Q-iM0BO6scxej2xS2DhMBU95EgHpCuaYytcJLRVDCQ-cr9KI09/exec";
+	
+						const qs = new URLSearchParams({filename: form.filename.value || file.name, mimeType: file.type});
+						fetch(`${url}?${qs}`, {method: "POST", body: JSON.stringify([...new Int8Array(f.target.result)])})
+						.then(res => {
+							res.json();
+							var registerPage = document.getElementById('register-success');
+							registerPage.innerHTML = '';
+							var h2 = document.createElement('h2');
+							h2.textContent = '報名成功';
+							registerPage.appendChild(h2);
+							var p = document.createElement('p');
+							p.innerText = "我們已收到您的報名資料，\n4/23篩選過後會在網站上公布報名名單。\n請靜候我們的消息。";
+							registerPage.appendChild(p);
+							var clearPage = document.getElementById('clear-this');
+							clearPage.style.display = 'none';
+							button.disabled = false;
+							button.style.background = '#00ffa3';
+							button.style.border = '#00ffa3';
+						})
+						.catch(err => {
+							console.log(err);
+							button.disabled = false;
+							button.style.background = '#00ffa3';
+							button.style.border = '#00ffa3';
+						});
+					}		
+				}
+				else
+				{
+					button.style.background = '#00ffa3';
+					button.style.border = '#00ffa3';
+					alert("請選擇檔案");
+				}
 			}
 			else
 			{
-				button.style.background = '#00ffa3';
-				button.style.border = '#00ffa3';
-				alert("請選擇檔案");
+				alert("正在上傳，請稍後");
 			}
-		}
-		else
-		{
-			alert("正在上傳，請稍後");
-		}
-	});
+		});
+
+	}
+}
+
+var regButton = document.getElementById('reg');
+var menuButton = document.getElementById('menu1');
+if(deadline < Date.now())
+{
+	if(regButton)
+	{
+		regButton.removeAttribute('href');
+		regButton.style.background = '#A9A9A9';
+		regButton.style.border = '#A9A9A9';
+		regButton.style.color = 'black'
+		regButton.title = "報名已截止"
+	}
+	if(menuButton)
+	{
+		menuButton.style = "display:none";
+	}
 }
