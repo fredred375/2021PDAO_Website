@@ -35,7 +35,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
-  color: #777;
+  /* color: #777; */
   background: #fff;
 }
 
@@ -2160,4 +2160,57 @@ form label {
   max-width: 100%;
   height: auto;
   width: auto\9; /* ie8 */
+}
+
+table
+{
+	background: #FFFFFF;
+	border:3px;
+	border-color: #000000;
+}
+
+.wood2 {
+	background: url(../images/login_image.png);
+}
+#indexT td {
+	/* index Table */
+	padding: 7px 0px;
+}
+
+tr {
+	background: white;
+}
+tr:hover
+{
+	background: #B34D4D;
+	color: #fbfbfb;
+	opacity: 1;
+    -o-transition: color .10s linear;
+    -webkit-transition: color .10s linear;
+    -moz-transition: color .10s linear;
+    transition:  color .10s linear;
+}
+tr:hover span, tr:hover a
+{
+	color: #fbfbfb;
+    -o-transition: color .10s linear;
+    -webkit-transition: color .10s linear;
+    -moz-transition: color .10s linear;
+    transition:  color .10s linear;
+}
+td
+{
+	padding: 5px 0px;
+	text-align: center;
+	box-shadow:0px 0px 0px rgba(40%,40%,40%,0),0px 0px 0px rgba(40%,40%,40%,0),0px 0px 1px rgba(0%,0%,0%,0.1);
+}
+th
+{
+	padding: 10px 10px;
+	text-align: center;
+}
+
+.team-table
+{
+  width: 100%;
 }

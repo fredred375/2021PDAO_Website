@@ -387,6 +387,99 @@ $('a[href^="#"]').click(function () {
 
 }());
 
+var tables = document.getElementsByClassName('team-table');
+var teams = [
+	'我們這一家',
+	'吃披薩',
+	'靜香團',
+	'一口披薩一口可樂讚',
+	'Bovid19',
+	'卓卓卓卓卓卓卓卓!大爆走',
+	'哈哈，魔眼',
+	'等待易卜生',
+	'一個酷酷的諧音梗',
+	'Kevin真的很煩',
+	'大家可以不要再叫大家取名字了嗎',
+	'妓女回來',
+	'一起cout0',
+	'R狗狗人勒',
+	'Oo煞氣ㄟ冠軍oO',
+	'隊名',
+	'資管 baseline',
+	'尤吉吉幫我打',
+	'蟹堡王的pizza好吃的pizza',
+	'BA方雲集',
+	'觀世音Pizza',
+	'寫程式不打草稿',
+	'ladididila',
+	'好想全隊',
+	'歡樂吃pizza特攻隊',
+	'何式功一直翹課',
+	'徵室友',
+	'假大一俱樂部',
+	'80%黑巧杏仁餅乾好吃',
+	'謝謝披薩',
+	'披薩一日遊',
+	'Lokking For Sponsor',
+	'sunrise',
+	'文組隊哈',
+	'好一朵美麗的',
+	'必勝客',
+	'無情の披薩收🈹️機',
+	'我想想',
+	'NoName',
+	'電資踢管',
+	'地理一',
+	'對對隊',
+	'卐材導課的vacancy卐',
+	'睪🈹️離席',
+	'林稜凱',
+	'Meow',
+	'你有後悔嗎？',
+	'地理大發現',
+	'資ㄍ系披薩趴',
+	'CNN土法煉鋼',
+	'南無喝囉怛那哆囉夜耶．南無阿唎耶，婆盧羯帝爍缽囉耶．菩提薩埵婆耶． 摩訶薩埵婆耶．摩訶迦盧尼迦耶．唵，薩皤囉罰曳．數怛那怛寫．南無 悉吉慄埵伊蒙阿唎耶．婆盧吉帝室佛囉愣馱婆．南無那囉謹墀．醯利摩訶 皤哆沙咩．',
+	'欸！吃什麼？',
+	'黃狗生蛋',
+	'賴神普渡眾生',
+	'國民金孫',
+	'我最愛的程式是新竹市',
+	'澎澎沐浴乳好香',
+	'披薩戰隊',
+	'統計好難',
+	'露營勾',
+	'我要吃pizzaaaaa',
+	'領英小隊',
+	'PADAI',
+	'🈹️',
+	'吃披薩的',
+	'隊名不重要',
+	'PDOGSADMIN'
+];
+for (let index = 0; index < (teams.length + 1) / 2; index++) {
+	const element = teams[index];
+	let tr = document.createElement('tr');
+	let td1 = document.createElement('td');
+	let td2 = document.createElement('td');
+	td1.textContent = index;
+	td2.textContent = element;
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tables[0].appendChild(tr);
+}
+for (let index = (teams.length + 1) / 2; index < teams.length; index++) {
+	const element = teams[index];
+	let tr = document.createElement('tr');
+	let td1 = document.createElement('td');
+	let td2 = document.createElement('td');
+	td1.textContent = index;
+	td2.textContent = element;
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tables[1].appendChild(tr);
+}
+
 var deadline = new Date('2021-4-22')
 const form = document.getElementById('form');
 if(form)
