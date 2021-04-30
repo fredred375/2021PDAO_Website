@@ -455,7 +455,10 @@ var teams = [
 	'🈹️',
 	'吃披薩的',
 	'隊名不重要',
-	'PDOGSADMIN'
+	'PDOGSADMIN',
+	'apo好壯',
+	'Roooooger'
+
 ];
 for (let index = 0; index < (teams.length + 1) / 2; index++) {
 	const element = teams[index];
