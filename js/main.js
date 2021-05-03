@@ -420,7 +420,7 @@ var teams = [
 	'80%黑巧杏仁餅乾好吃',
 	'謝謝披薩',
 	'披薩一日遊',
-	'Lokking For Sponsor',
+	'Looking For Sponsor',
 	'sunrise',
 	'文組隊哈',
 	'好一朵美麗的',
